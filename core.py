@@ -11,28 +11,24 @@ import time
 
 class ResearchEngine:
     def __init__(self):
-        # Initialize collectors
+
         self.company_info = CompanyInfoCollector()
         self.financial_data = FinancialDataCollector()
         self.news_collector = NewsCollector()
         self.social_media = SocialMediaCollector()
         self.competitor_info = CompetitorInfoCollector()
         
-        # Initialize analyzers
+
         self.sentiment_analyzer = SentimentAnalyzer()
         self.trends_analyzer = TrendsAnalyzer()
         
-        # Initialize storage
+
         self.db = DatabaseManager()
-    
-# core.py (partial update for the research_company method)
+
     def research_company(self, company_name):
-        """
-        Main method to research a company without caching.
-        """
+
         print(f"Starting research for: {company_name}")
-        
-        # Start with company overview
+
         print("Getting company overview...")
         try:
             overview = self.company_info.get_company_overview(company_name)
@@ -41,8 +37,7 @@ class ResearchEngine:
         except Exception as e:
             print(f"Error getting company overview: {e}")
             overview = {}
-        
-        # Get financial information
+
         print("Getting financial data...")
         try:
             financials = self.financial_data.get_financial_data(company_name)
@@ -51,8 +46,7 @@ class ResearchEngine:
         except Exception as e:
             print(f"Error getting financial data: {e}")
             financials = {}
-        
-        # Get recent news
+
         print("Getting recent news...")
         try:
             news = self.news_collector.get_recent_news(company_name)
@@ -61,24 +55,20 @@ class ResearchEngine:
         except Exception as e:
             print(f"Error getting news: {e}")
             news = []
-        
-        # Analyze news sentiment
+
         print("Analyzing news sentiment...")
         try:
             news_with_sentiment = self.sentiment_analyzer.analyze_news_sentiment(news)
         except Exception as e:
             print(f"Error analyzing news sentiment: {e}")
             news_with_sentiment = []
-        
-        # Get social media sentiment
         print("Getting social media sentiment...")
         try:
             social_sentiment = self.social_media.get_social_media_sentiment(company_name)
         except Exception as e:
             print(f"Error getting social media sentiment: {e}")
             social_sentiment = {}
-        
-        # Get competitor information
+
         print("Getting competitor information...")
         try:
             competitors = self.competitor_info.get_competitors(company_name)
@@ -86,7 +76,7 @@ class ResearchEngine:
             print(f"Error getting competitor information: {e}")
             competitors = []
         
-        # Get growth trends if we have financial data
+
         growth_trends = None
         ticker_symbol = None
         try:
@@ -102,8 +92,7 @@ class ResearchEngine:
                         growth_trends['forecast'] = forecast
         except Exception as e:
             print(f"Error analyzing growth trends: {e}")
-        
-        # Compile research results
+
         research_results = {
             "company_name": company_name,
             "overview": overview,
@@ -114,7 +103,6 @@ class ResearchEngine:
             "growth_trends": growth_trends
         }
         
-        # Save to database
         self.db.save_research(research_results)
         print(f"Research results saved for {company_name}")
         
