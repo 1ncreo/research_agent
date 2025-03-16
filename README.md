@@ -23,16 +23,16 @@ An AI-powered research agent that gathers and analyzes comprehensive company dat
 ## Tech Stack
 
 - **Backend**: Python with Flask
-- **AI/NLP Processing**: TextBlob, NLTK, LangChain (free components)
+- **AI/NLP Processing**: TextBlob, NLTK
 - **Web Scraping**: BeautifulSoup, Requests
-- **Data Sources**: Yahoo Finance, Google News, Reddit, and more
+- **Data Sources**: Yahoo Finance, Yahoo News, Reddit, and more
 - **Storage**: MongoDB (can be configured for local storage)
 
 ## Installation
 
 1. Clone the repository:
     ```bash
-    git clone <repository-url>
+    git clone "https://github.com/1ncreo/research_agent.git"
     cd company-research-agent
     ```
 
