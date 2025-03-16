@@ -1,0 +1,30 @@
+# Web framework
+Flask==2.3.3
+
+# Data processing
+pandas==2.0.3
+numpy==1.24.4
+
+# Web scraping
+beautifulsoup4==4.12.2
+requests==2.31.0
+selenium==4.15.2
+webdriver-manager==4.0.1
+
+# NLP and AI
+langchain==0.0.335
+langchain-community==0.0.13
+llama-index
+transformers
+textblob
+nltk
+
+# Financial data
+yfinance==0.2.54
+alpha_vantage==3.0.0
+
+# Database
+pymongo==4.11.2
+
+# Utilities
+python-dotenv==1.0.1
